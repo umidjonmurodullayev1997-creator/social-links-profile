@@ -1,0 +1,124 @@
+@use "sass:math";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+$green: hsl(75, 94%, 57%);
+$white: hsl(0, 0%, 100%);
+$grey-700: hsl(0, 0%, 20%);
+$grey-800: hsl(0, 0%, 12%);
+$grey-900: hsl(0, 0%, 8%);
+$font-family: "Inter", sans-serif;
+body {
+  font-family: $font-family;
+}
+
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+
+.container {
+  max-width: rem(1440px);
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: $grey-900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    min-height: 100vh;
+    padding: rem(40px);
+  }
+  @media (max-width: 375px) {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 rem(24px);
+  }
+}
+.card {
+  width: 100%;
+  max-width: rem(384px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $grey-800;
+  padding: rem(40px);
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (max-width: 375px) {
+    width: 100%;
+    padding: rem(24px);
+  }
+}
+.card img {
+  width: rem(88px);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.name-location {
+  width: 100%;
+  text-align: center;
+  padding: rem(24px);
+}
+.name-location h1 {
+  font-size: rem(24px);
+  font-weight: 700;
+  line-height: 1.5;
+  color: $white;
+  padding-bottom: rem(4px);
+}
+.name-location .description {
+  font-size: rem(14px);
+  font-weight: 600;
+  color: $green;
+  line-height: 1.5;
+}
+.card .bio {
+  font-size: rem(14px);
+  font-weight: 400;
+  color: $white;
+  line-height: 1.5;
+  padding-bottom: rem(24px);
+}
+nav {
+  width: 100%;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16px);
+  width: 100%;
+  list-style: none;
+}
+nav ul li {
+  width: 100%;
+}
+nav a {
+  display: block;
+  width: 100%;
+  padding: rem(12px);
+  background-color: $grey-700;
+  border-radius: rem(8px);
+  text-align: center;
+  font-size: rem(14px);
+  line-height: 1.5;
+  font-weight: 700;
+  text-decoration: none;
+  color: $white;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  &:hover {
+    background-color: $green;
+    color: $grey-700;
+  }
+}
+.active {
+  background-color: $green;
+  color: $grey-700;
+}
